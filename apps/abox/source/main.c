@@ -1,0 +1,5 @@
+
+void application_start( )
+{
+
+}
