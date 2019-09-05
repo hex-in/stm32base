@@ -186,7 +186,7 @@
             <hadIRAM2>1</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -330,9 +330,9 @@
             <vShortWch>1</vShortWch>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>USE_HAL_DRIVER,STM32F405xx</Define>
+              <Define>USE_HAL_DRIVER,STM32F405xx,HSE_VALUE=26000000</Define>
               <Undefine></Undefine>
-              <IncludePath>..\include;..\..\..\include;..\..\..\platforms\include;..\..\..\libraries\utilities\ring_buffer;..\..\..\platforms\STM32F4xx;..\..\..\platforms\ARM_CM4\CMSIS;..\..\..\platforms\STM32F4xx\peripherals;..\..\..\platforms\STM32F4xx\peripherals\libraries;..\..\..\system\FreeRTOS\ver10.0.1\Source\include;..\..\..\platforms\STM32F4xx\peripherals\libraries\inc;..\..\..\system\FreeRTOS\ver10.0.1\Source\portable\RVDS\ARM_CM4F</IncludePath>
+              <IncludePath>..\include;..\..\..\system;..\..\..\include;..\..\..\platforms\include;..\..\..\system\FreeRTOS;..\..\..\platforms\STM32F4xx;..\..\..\libraries\utilities\ring_buffer;..\..\..\platforms\ARM_CM4\CMSIS;..\..\..\libraries\daemons\led_service;..\..\..\platforms\STM32F4xx\peripherals;..\..\..\platforms\STM32F4xx\peripherals\libraries;..\..\..\system\FreeRTOS\ver10.0.1\Source\include;..\..\..\platforms\STM32F4xx\peripherals\libraries\inc;..\..\..\system\FreeRTOS\ver10.0.1\Source\portable\RVDS\ARM_CM4F</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -393,12 +393,42 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>system</GroupName>
+          <Files>
+            <File>
+              <FileName>hexin_rtos_common.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\system\hexin_rtos_common.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>platforms</GroupName>
+          <Files>
+            <File>
+              <FileName>hexin_platform_common.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platforms\hexin_platform_common.c</FilePath>
+            </File>
+            <File>
+              <FileName>platform.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platforms\platform.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>system\FreeRTOS</GroupName>
           <Files>
             <File>
               <FileName>hexin_freertos.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\system\FreeRTOS\hexin_freertos.c</FilePath>
+            </File>
+            <File>
+              <FileName>cmw_rtos.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\system\FreeRTOS\cmw_rtos.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -423,12 +453,22 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>libraries\daemons\led_service</GroupName>
+          <Files>
+            <File>
+              <FileName>led_service.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\libraries\daemons\led_service\led_service.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>platforms\ARM_CM4</GroupName>
           <Files>
             <File>
-              <FileName>crt0_KEIL.c</FileName>
+              <FileName>host_cm4.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\platforms\ARM_CM4\crt0_KEIL.c</FilePath>
+              <FilePath>..\..\..\platforms\ARM_CM4\host_cm4.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -439,16 +479,6 @@
               <FileName>platform_init.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\platforms\STM32F4xx\platform_init.c</FilePath>
-            </File>
-            <File>
-              <FileName>platform_vector_table.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\platforms\STM32F4xx\platform_vector_table.c</FilePath>
-            </File>
-            <File>
-              <FileName>platform_unhandled_isr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\platforms\STM32F4xx\platform_unhandled_isr.c</FilePath>
             </File>
             <File>
               <FileName>platform_isr.c</FileName>
@@ -464,6 +494,11 @@
               <FileName>system_stm32f4xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\platforms\STM32F4xx\peripherals\system_stm32f4xx.c</FilePath>
+            </File>
+            <File>
+              <FileName>platform_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platforms\STM32F4xx\peripherals\platform_gpio.c</FilePath>
             </File>
           </Files>
         </Group>

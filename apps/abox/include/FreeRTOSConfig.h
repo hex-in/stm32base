@@ -30,6 +30,8 @@
 #ifndef FREERTOS_CONFIG_H
 #define FREERTOS_CONFIG_H
 
+#include "platform_config.h"
+
 /*-----------------------------------------------------------
  * Application specific definitions.
  *
@@ -56,9 +58,9 @@
 #define configSUPPORT_DYNAMIC_ALLOCATION         1
 #define configUSE_IDLE_HOOK                      0
 #define configUSE_TICK_HOOK                      0
-#define configCPU_CLOCK_HZ                       ( SystemCoreClock )
+#define configCPU_CLOCK_HZ                       ( CPU_CLOCK_HZ )
 #define configTICK_RATE_HZ                       ((TickType_t)1000)
-#define configMAX_PRIORITIES                     ( 7 )
+#define configMAX_PRIORITIES                     ( 10 )
 #define configMINIMAL_STACK_SIZE                 ((uint16_t)128)
 #define configTOTAL_HEAP_SIZE                    ((size_t)15360)
 #define configMAX_TASK_NAME_LEN                  ( 16 )
@@ -66,6 +68,12 @@
 #define configUSE_MUTEXES                        1
 #define configQUEUE_REGISTRY_SIZE                8
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION  1
+
+#define configUSE_RECURSIVE_MUTEXES 		       ( 1 )
+#define configUSE_TIMERS                       ( 1 )
+#define configTIMER_TASK_PRIORITY              ( 7 )
+#define configTIMER_QUEUE_LENGTH               ( 5 )
+#define configTIMER_TASK_STACK_DEPTH           ( ( unsigned short ) (1024 / sizeof( portSTACK_TYPE )) )
 
 /* Co-routine definitions. */
 #define configUSE_CO_ROUTINES                    0
@@ -115,12 +123,12 @@ header file. */
 
 /* Definitions that map the FreeRTOS port interrupt handlers to their CMSIS
 standard names. */
-#define vPortSVCHandler    SVC_irq
-#define xPortPendSVHandler PENDSV_irq
+#define vPortSVCHandler    SVC_Handler
+#define xPortPendSVHandler PendSV_Handler
 
 /* IMPORTANT: This define is commented when used with STM32Cube firmware, when the timebase source is SysTick,
               to prevent overwriting SysTick_Handler defined within STM32Cube HAL */
-#define xPortSysTickHandler SYSTICK_irq
+#define xPortSysTickHandler SysTick_Handler
 
 /* USER CODE BEGIN Defines */   	      
 /* Section where parameter definitions can be added (for instance, to override default ones in FreeRTOS.h) */

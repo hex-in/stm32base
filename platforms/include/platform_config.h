@@ -24,10 +24,10 @@ extern "C" {
 #define AHB_CLOCK_DIVIDER    ( RCC_SYSCLK_DIV1 )
 
 /*  APB1 clock : AHB clock / 2 */
-#define APB1_CLOCK_DIVIDER   ( RCC_HCLK_DIV2 )
+#define APB1_CLOCK_DIVIDER   ( RCC_HCLK_DIV4 )
 
 /*  APB2 clock : AHB clock  */
-#define APB2_CLOCK_DIVIDER   ( RCC_HCLK_DIV1 )
+#define APB2_CLOCK_DIVIDER   ( RCC_HCLK_DIV2 )
 
 /*  PLL source : external crystal */
 #define PLL_SOURCE           ( RCC_PLLSource_HSE )
@@ -45,7 +45,7 @@ extern "C" {
 #define SYSTICK_CLOCK_SOURCE ( SYSTICK_CLKSOURCE_HCLK )
 
 /*  Internal flash wait state : 2 cycles */
-#define INT_FLASH_WAIT_STATE ( FLASH_LATENCY_2 )
+#define INT_FLASH_WAIT_STATE ( FLASH_LATENCY_3 )
 
 /*  Internal flash voltage range : 2.7 to 3.6V */
 #define PLATFORM_STM32_VOLTAGE_2V7_TO_3V6

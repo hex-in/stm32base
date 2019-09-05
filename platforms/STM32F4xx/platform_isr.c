@@ -40,7 +40,7 @@ extern TIM_HandleTypeDef        htim1;
  ******************************************************/
 
 
-void TIM1_UP_TIM10_irq(void)
+void TIM1_UP_TIM10_IRQHandler(void)
 {
 	HAL_TIM_IRQHandler(&htim1);
 }

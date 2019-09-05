@@ -26,12 +26,11 @@ extern "C"
 /************************************************************************/
 
 #define HEXIN_DEFAULT_WORKER_PRIORITY           (5)
-#define HEXIN_DEFAULT_LIBRARY_PRIORITY          (5)
 #define HEXIN_APPLICATION_PRIORITY              (7)
 
 /************************************************************************
  * Application thread stack size */
-#define HEXIN_DEFAULT_APPLICATION_STACK_SIZE    (6144)
+#define HEXIN_DEFAULT_APPLICATION_STACK_SIZE    (128)
 
 /************************************************************************
  * Uncomment to disable watchdog. For debugging only */

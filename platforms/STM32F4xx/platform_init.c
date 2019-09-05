@@ -4,7 +4,6 @@
 #include "platform_init.h"
 #include "platform_isr.h"
 #include "platform_peripheral.h"
-//#include "platform_sleep.h"
 #include "platform_config.h"
 #include "platform_toolchain.h"
 
